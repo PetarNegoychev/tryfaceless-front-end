@@ -4,51 +4,43 @@ import { Button } from "@/components/ui/button";
 const plans = [
   {
     name: "Starter",
-    price: "$29",
-    period: "/month",
-    description: "Perfect for individuals getting started with AI UGC",
+    price: "$19",
+    period: "per month",
+    description: "Perfect for getting started",
     features: [
-      "10 videos per month",
-      "720p video quality",
-      "Basic AI voices",
-      "Standard templates",
-      "Email support",
+      "Generate 10 videos per month",
+      "Use default 200+ UGC avatars included",
+      "Create your own AI avatars (25 images, 5 videos)",
     ],
-    cta: "Start Free Trial",
+    cta: "Buy Now",
     highlighted: false,
   },
   {
-    name: "Pro",
-    price: "$79",
-    period: "/month",
-    description: "For growing businesses and serious creators",
+    name: "Growth",
+    price: "$49",
+    period: "per month",
+    description: "Everything in Starter, plus...",
     features: [
-      "50 videos per month",
-      "1080p video quality",
-      "Premium AI voices",
-      "Custom branding",
-      "Advanced templates",
-      "Priority support",
-      "Analytics dashboard",
+      "Generate 50 videos per month",
+      "AI slideshow generator access",
+      "Create your own AI avatars (100 images, 25 videos)",
+      "Publish directly to social platforms",
+      "Schedule and automate videos",
     ],
-    cta: "Start Free Trial",
+    cta: "Buy Now",
     highlighted: true,
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "For teams and agencies with high-volume needs",
+    name: "Scale",
+    price: "$95",
+    period: "per month",
+    description: "Everything in Growth, plus...",
     features: [
-      "Unlimited videos",
-      "4K video quality",
-      "Custom AI voice cloning",
-      "White-label solution",
-      "API access",
-      "Dedicated account manager",
-      "Custom integrations",
+      "Generate 150 videos per month",
+      "Create your own AI avatars (200 images, 50 videos)",
+      "Priority support",
     ],
-    cta: "Contact Sales",
+    cta: "Buy Now",
     highlighted: false,
   },
 ];
@@ -60,11 +52,10 @@ const Pricing = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Simple, <span className="gradient-text">Transparent Pricing</span>
+            <span className="gradient-text">Pricing</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Choose the plan that fits your needs. Start with a free trial, 
-            upgrade anytime as you grow.
+            Choose the plan that fits your content creation needs
           </p>
         </div>
 
@@ -92,16 +83,16 @@ const Pricing = () => {
                 <h3 className="text-xl font-semibold mb-2 text-foreground">{plan.name}</h3>
                 <div className="flex items-baseline justify-center gap-1">
                   <span className="text-4xl font-bold gradient-text">{plan.price}</span>
-                  <span className="text-muted-foreground">{plan.period}</span>
                 </div>
+                <span className="text-sm text-muted-foreground">{plan.period}</span>
                 <p className="text-sm text-muted-foreground mt-2">{plan.description}</p>
               </div>
 
               {/* Features */}
               <ul className="space-y-3 mb-6">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm">
-                    <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <li key={feature} className="flex items-start gap-3 text-sm">
+                    <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3 h-3 text-primary" />
                     </div>
                     <span className="text-muted-foreground">{feature}</span>

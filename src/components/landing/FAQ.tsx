@@ -7,28 +7,44 @@ import {
 
 const faqs = [
   {
-    question: "What is TryFaceless and how does it work?",
-    answer: "TryFaceless is an AI-powered platform that generates professional UGC-style videos without you showing your face. Simply upload your product images or app screenshots, describe what you want to promote, and our AI creates engaging video content with natural voiceovers, captions, and visuals.",
+    question: "How does TryFaceless work?",
+    answer: "TryFaceless analyzes your niche and competitors to identify trending content opportunities. Simply enter your details, and our AI generates viral-ready content ideas optimized for your target audience.",
   },
   {
-    question: "Do I need video editing experience?",
-    answer: "Not at all! TryFaceless is designed for everyone. Our AI handles all the complex video editing, transitions, and effects. You just provide the content and our platform does the rest.",
+    question: "Do I need to show my face or hire creators?",
+    answer: "Not at all! TryFaceless creates UGC-style content using AI avatars. You get professional videos without showing your face or hiring expensive creators.",
   },
   {
-    question: "What types of videos can I create?",
-    answer: "You can create product demos, unboxing videos, customer testimonials, app tutorials, review-style content, comparison videos, and social media ads optimized for TikTok, Instagram Reels, and YouTube Shorts.",
+    question: "How many videos can I generate per month?",
+    answer: "It depends on your plan: Starter gives you 10 videos/month, Growth gives you 50 videos/month, and Scale gives you 150 videos/month.",
   },
   {
-    question: "How long does it take to generate a video?",
-    answer: "Most videos are generated within 2-5 minutes depending on complexity and length. Our AI works fast so you can iterate quickly and publish content when it matters.",
+    question: "Can I publish directly to social platforms?",
+    answer: "Yes! Growth and Scale plans include direct publishing to social platforms, plus scheduling and automation features to streamline your workflow.",
   },
   {
-    question: "Can I customize the AI voice and style?",
-    answer: "Yes! We offer a variety of AI voices with different tones, accents, and styles. Pro and Enterprise plans also include custom branding options and voice cloning capabilities.",
+    question: "What makes TryFaceless different from other tools?",
+    answer: "TryFaceless is a complete Content OS, not just a video generator. We analyze your niche, track competitors, and identify the exact content opportunities that will help you go viral.",
   },
   {
-    question: "Is there a free trial available?",
-    answer: "Absolutely! All our plans come with a 7-day free trial. No credit card required to start. You can create up to 3 videos during your trial to experience the full platform.",
+    question: "How realistic are the AI avatars?",
+    answer: "Our AI avatars are highly realistic and designed for UGC-style content. With 200+ default avatars included, plus the ability to create custom avatars, you'll have endless options for your videos.",
+  },
+  {
+    question: "Do I keep the rights to my videos?",
+    answer: "Absolutely! All videos you create with TryFaceless are 100% yours. You own full commercial rights to use them however you want.",
+  },
+  {
+    question: "Can I cancel my subscription anytime?",
+    answer: "Yes, you can cancel your subscription at any time with no questions asked. Your access continues until the end of your billing period.",
+  },
+  {
+    question: "What if I'm not satisfied with the results?",
+    answer: "We're confident you'll love TryFaceless. If you're not satisfied, reach out to our support team and we'll work with you to resolve any issues.",
+  },
+  {
+    question: "Do you offer support and training?",
+    answer: "Yes! All plans include access to our knowledge base and email support. Scale plan users get priority support. We also provide onboarding guides and best practices to help you maximize your results.",
   },
 ];
 
@@ -42,7 +58,7 @@ const FAQ = () => {
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about TryFaceless
+            Everything you need to know about TryFaceless and AI-generated UGC content
           </p>
         </div>
 
