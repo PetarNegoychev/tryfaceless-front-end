@@ -1,5 +1,6 @@
 import { X, Check, Clock, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const manualPainPoints = [
   { text: "Research trending topics manually", time: "2-3 hours" },
@@ -31,7 +32,13 @@ const Comparison = () => {
     <section className="py-24 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Creating viral content feels too hard?
             <br />
@@ -41,12 +48,18 @@ const Comparison = () => {
             Stop wasting hours creating content manually and start generating viral videos 
             that actually convert. TryFaceless is your Content OS.
           </p>
-        </div>
+        </motion.div>
 
         {/* Comparison Grid */}
         <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Manual Side */}
-          <div className="relative p-8 rounded-2xl border border-destructive/30 bg-destructive/5">
+          <motion.div 
+            className="relative p-8 rounded-2xl border border-destructive/30 bg-destructive/5"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-destructive/20 flex items-center justify-center">
                 <Clock className="w-5 h-5 text-destructive" />
@@ -56,7 +69,14 @@ const Comparison = () => {
 
             <ul className="space-y-4 mb-8">
               {manualPainPoints.map((point, index) => (
-                <li key={index} className="flex items-start gap-3">
+                <motion.li 
+                  key={index} 
+                  className="flex items-start gap-3"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
                   <div className="w-5 h-5 rounded-full bg-destructive/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <X className="w-3 h-3 text-destructive" />
                   </div>
@@ -66,7 +86,7 @@ const Comparison = () => {
                       <span className="text-destructive font-medium ml-2">({point.time})</span>
                     )}
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
 
@@ -74,14 +94,24 @@ const Comparison = () => {
               <div className="text-sm text-muted-foreground mb-1">Total time investment</div>
               <div className="text-2xl font-bold text-destructive">8-12 hours daily + Burnout risk</div>
             </div>
-          </div>
+          </motion.div>
 
           {/* TryFaceless Side */}
-          <div className="relative p-8 rounded-2xl border border-primary/30 bg-primary/5">
+          <motion.div 
+            className="relative p-8 rounded-2xl border border-primary/30 bg-primary/5"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             {/* Lightning bolt accent */}
-            <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
+            <motion.div 
+              className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg"
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
               <Zap className="w-6 h-6 text-primary-foreground" />
-            </div>
+            </motion.div>
 
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
@@ -92,7 +122,14 @@ const Comparison = () => {
 
             <ul className="space-y-6 mb-8">
               {tryfacelessBenefits.map((benefit, index) => (
-                <li key={index} className="flex items-start gap-3">
+                <motion.li 
+                  key={index} 
+                  className="flex items-start gap-3"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                >
                   <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check className="w-3 h-3 text-primary" />
                   </div>
@@ -100,7 +137,7 @@ const Comparison = () => {
                     <div className="font-semibold text-foreground mb-1">{benefit.title}</div>
                     <p className="text-sm text-muted-foreground">{benefit.description}</p>
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
 
@@ -109,12 +146,17 @@ const Comparison = () => {
               <div className="text-2xl font-bold gradient-text">Effective viral growth in 20 min/day</div>
             </div>
 
-            <Button
-              className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-all glow-primary py-6 text-lg"
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              Start Your Transformation →
-            </Button>
-          </div>
+              <Button
+                className="w-full bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-all glow-primary py-6 text-lg"
+              >
+                Start Your Transformation →
+              </Button>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
