@@ -5,7 +5,7 @@ import tryfacelessIcon from "@/assets/tryfaceless-icon.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden animated-gradient-bg">
+    <section className="relative min-h-screen flex items-center justify-center pt-32 md:pt-40 overflow-hidden animated-gradient-bg">
       {/* Animated glow blobs */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div 
