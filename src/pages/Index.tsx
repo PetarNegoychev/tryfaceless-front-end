@@ -6,6 +6,7 @@ import Comparison from "@/components/landing/Comparison";
 import Pricing from "@/components/landing/Pricing";
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/landing/Footer";
+import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Pricing />
       <FAQ />
       <Footer />
+      <StickyMobileCTA />
     </div>
   );
 };
