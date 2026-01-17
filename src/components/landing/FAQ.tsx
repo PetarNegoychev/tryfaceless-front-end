@@ -16,14 +16,6 @@ const faqs = [
     answer: "Not at all! TryFaceless creates UGC-style content using AI avatars. You get professional videos without showing your face or hiring expensive creators.",
   },
   {
-    question: "How many videos can I generate per month?",
-    answer: "It depends on your plan: Starter gives you 10 videos/month, Growth gives you 50 videos/month, and Scale gives you 150 videos/month.",
-  },
-  {
-    question: "Can I publish directly to social platforms?",
-    answer: "Yes! Growth and Scale plans include direct publishing to social platforms, plus scheduling and automation features to streamline your workflow.",
-  },
-  {
     question: "What makes TryFaceless different from other tools?",
     answer: "TryFaceless is a complete Content OS, not just a video generator. We analyze your niche, track competitors, and identify the exact content opportunities that will help you go viral.",
   },
