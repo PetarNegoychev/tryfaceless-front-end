@@ -51,21 +51,46 @@ const Hero = () => {
       />
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Centered Badge */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-8"
+        >
+          <div className="relative group">
+            {/* Animated border glow */}
+            <motion.div
+              className="absolute -inset-[2px] rounded-full bg-gradient-to-r from-primary via-secondary to-neon-pink opacity-75 blur-sm"
+              animate={{ 
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              style={{ backgroundSize: "200% 200%" }}
+            />
+            <div className="relative flex items-center gap-3 px-6 py-3 rounded-full bg-background/90 backdrop-blur-xl border border-primary/20">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              >
+                <Sparkles className="w-5 h-5 text-primary" />
+              </motion.div>
+              <span className="text-sm font-medium bg-gradient-to-r from-primary via-secondary to-neon-pink bg-clip-text text-transparent">
+                Your Content OS for Viral Growth
+              </span>
+              <motion.div
+                className="w-2 h-2 rounded-full bg-primary"
+                animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+            </div>
+          </div>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Content */}
           <div className="text-center lg:text-left">
-            {/* Badge */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm mb-8"
-            >
-              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-sm text-primary">Your Content OS for Viral Growth</span>
-            </motion.div>
-
             {/* Main Headline */}
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}

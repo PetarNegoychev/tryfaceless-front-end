@@ -22,7 +22,7 @@ const Navbar = () => {
             <img 
               src={tryfacelessLogo} 
               alt="TryFaceless" 
-              className="h-8 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
           </a>
 

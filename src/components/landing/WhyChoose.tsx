@@ -1,31 +1,48 @@
-import { Zap, Target, Clock, TrendingUp } from "lucide-react";
+import { Zap, Target, Clock, TrendingUp, Sparkles, Brain, Wand2, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
-import tryfacelessLogo from "@/assets/tryfaceless-logo.png";
 
 const features = [
   {
-    number: "01",
-    icon: Zap,
+    icon: Brain,
     title: "AI-Powered Analysis",
     description: "Our AI scans trending topics and competitor content to surface the best opportunities for you.",
+    gradient: "from-primary to-secondary",
+    size: "large",
   },
   {
-    number: "02",
     icon: Target,
     title: "Niche-Specific Content",
-    description: "Every piece of content is tailored to your specific niche and target audience for maximum impact.",
+    description: "Tailored to your specific niche and target audience.",
+    gradient: "from-secondary to-neon-pink",
+    size: "small",
   },
   {
-    number: "03",
     icon: Clock,
     title: "Save 10+ Hours Weekly",
-    description: "Stop spending hours on research and scripting. Get ready-to-post content in minutes.",
+    description: "Stop spending hours on research and scripting.",
+    gradient: "from-neon-pink to-primary",
+    size: "small",
   },
   {
-    number: "04",
     icon: TrendingUp,
     title: "Proven Viral Patterns",
-    description: "We analyze what's already working in your space and replicate those winning formulas.",
+    description: "We analyze what's already working in your space and replicate those winning formulas for your content.",
+    gradient: "from-primary to-neon-pink",
+    size: "large",
+  },
+  {
+    icon: Wand2,
+    title: "One-Click Generation",
+    description: "Generate complete content with a single click.",
+    gradient: "from-secondary to-primary",
+    size: "small",
+  },
+  {
+    icon: BarChart3,
+    title: "Performance Insights",
+    description: "Track what content performs best for your audience.",
+    gradient: "from-neon-pink to-secondary",
+    size: "small",
   },
 ];
 
@@ -34,7 +51,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 };
@@ -51,12 +68,19 @@ const itemVariants = {
 const WhyChoose = () => {
   return (
     <section id="features" className="py-24 relative overflow-hidden">
-      {/* Background glow */}
-      <motion.div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* Background effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div 
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[80px]"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.05, 0.15] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -67,100 +91,109 @@ const WhyChoose = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <motion.div 
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-secondary/30 bg-secondary/10 backdrop-blur-sm mb-4"
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <Sparkles className="w-4 h-4 text-secondary" />
+            <span className="text-xs font-medium text-secondary">Powerful Features</span>
+          </motion.div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Why Choose <span className="gradient-text">TryFaceless?</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             Creating viral content feels too hard? TryFaceless is the better way.
           </p>
         </motion.div>
 
-        {/* Features Grid with Central Visual */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Central Floating Visual */}
-          <motion.div 
-            className="hidden lg:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 items-center justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="relative">
-              {/* Outer glow ring */}
-              <motion.div 
-                className="absolute inset-0 w-48 h-48 rounded-full bg-gradient-to-r from-primary to-secondary opacity-20 blur-xl"
-                animate={{ scale: [1, 1.3, 1], opacity: [0.2, 0.4, 0.2] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              
-              {/* Main orb */}
-              <motion.div 
-                className="relative w-48 h-48 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/50 backdrop-blur-xl flex items-center justify-center"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <motion.img 
-                  src={tryfacelessLogo}
-                  alt="TryFaceless"
-                  className="w-32 h-auto object-contain"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                />
-              </motion.div>
-              
-              {/* Orbiting dots */}
-              <motion.div 
-                className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 w-3 h-3 rounded-full bg-primary shadow-lg shadow-primary/50"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                style={{ transformOrigin: "50% calc(50% + 96px)" }}
-              />
-              <motion.div 
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 w-3 h-3 rounded-full bg-secondary shadow-lg shadow-secondary/50"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                style={{ transformOrigin: "50% calc(50% - 96px)" }}
-              />
-            </div>
-          </motion.div>
-
-          {/* Feature Cards */}
-          <motion.div 
-            className="grid md:grid-cols-2 gap-6 lg:gap-x-[320px]"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {features.map((feature) => (
+        {/* Bento Grid */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              className={`group relative rounded-2xl border border-border bg-card/60 backdrop-blur-sm overflow-hidden ${
+                feature.size === "large" ? "md:col-span-2 p-8" : "p-6"
+              }`}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {/* Gradient border on hover */}
               <motion.div
-                key={feature.number}
-                className="group relative p-6 rounded-xl border border-border bg-card/80 backdrop-blur-sm card-glow"
-                variants={itemVariants}
-                whileHover={{ scale: 1.02, y: -5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                {/* Number badge */}
-                <div className="absolute -top-3 -right-3 w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/30 flex items-center justify-center">
-                  <span className="text-sm font-bold gradient-text">{feature.number}</span>
-                </div>
+                className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+              />
+              
+              {/* Gradient glow */}
+              <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-30 blur-3xl transition-opacity duration-500`} />
 
+              <div className="relative z-10">
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <feature.icon className="w-6 h-6 text-primary" />
-                </div>
+                <motion.div 
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 shadow-lg`}
+                  whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <feature.icon className="w-6 h-6 text-white" />
+                </motion.div>
 
                 {/* Content */}
-                <h3 className="text-lg font-semibold mb-2 text-foreground">
+                <h3 className={`font-semibold mb-2 text-foreground ${feature.size === "large" ? "text-xl" : "text-lg"}`}>
                   {feature.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className={`text-muted-foreground ${feature.size === "large" ? "text-base" : "text-sm"}`}>
                   {feature.description}
                 </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+
+                {/* Large card extra decoration */}
+                {feature.size === "large" && (
+                  <div className="mt-6 flex items-center gap-3">
+                    <motion.div 
+                      className="flex -space-x-2"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      {[...Array(3)].map((_, i) => (
+                        <div 
+                          key={i} 
+                          className={`w-8 h-8 rounded-full bg-gradient-to-br ${feature.gradient} border-2 border-background flex items-center justify-center`}
+                        >
+                          <Zap className="w-4 h-4 text-white" />
+                        </div>
+                      ))}
+                    </motion.div>
+                    <span className="text-xs text-muted-foreground">Trusted by 500+ creators</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Corner accent */}
+              <div className={`absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl ${feature.gradient} opacity-5 rounded-tl-full`} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Bottom CTA hint */}
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+        >
+          <p className="text-sm text-muted-foreground">
+            Join thousands of creators already using TryFaceless →
+          </p>
+        </motion.div>
       </div>
     </section>
   );
