@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Play, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -25,21 +25,24 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8 animate-fade-in">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary">AI-Powered UGC Generation</span>
+            <span className="text-sm text-primary">Your Content OS for Viral Growth</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            Generate{" "}
-            <span className="gradient-text">Faceless UGC</span>
-            <br />
-            Videos with AI
+            Get more views in{" "}
+            <span className="gradient-text">3 simple steps</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Create professional UGC-style videos for ecommerce, affiliate marketing, 
-            and mobile app promotion — without showing your face or hiring creators.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            Tell us your niche, your top 3 competitors and TryFaceless will create 
+            the most highly engaging content for you to post. No scripting needed.
+          </p>
+
+          {/* Tagline */}
+          <p className="text-base md:text-lg text-foreground/80 font-medium mb-8 animate-fade-in" style={{ animationDelay: "0.25s" }}>
+            Let us do the hard work. You focus on going viral.
           </p>
 
           {/* CTA Buttons */}
@@ -53,10 +56,9 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-border hover:bg-muted/50 px-8 py-6 text-lg group"
+              className="border-border hover:bg-muted/50 px-8 py-6 text-lg"
             >
-              <Play className="w-5 h-5 mr-2 group-hover:text-primary transition-colors" />
-              Watch Demo
+              See How It Works
             </Button>
           </div>
 

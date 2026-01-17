@@ -6,28 +6,26 @@ const Footer = () => {
   const footerLinks = {
     product: [
       { label: "Features", href: "#features" },
+      { label: "How It Works", href: "#how-it-works" },
       { label: "Pricing", href: "#pricing" },
       { label: "FAQ", href: "#faq" },
-      { label: "Changelog", href: "#" },
     ],
     company: [
       { label: "About", href: "#" },
       { label: "Blog", href: "#" },
-      { label: "Careers", href: "#" },
       { label: "Contact", href: "#" },
     ],
     legal: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },
-      { label: "Cookie Policy", href: "#" },
     ],
   };
 
   const socialLinks = [
     { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
     { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
   return (
@@ -43,7 +41,7 @@ const Footer = () => {
               <span className="text-xl font-bold text-foreground">TryFaceless</span>
             </a>
             <p className="text-sm text-muted-foreground mb-6 max-w-xs">
-              Generate professional UGC-style videos with AI. No face, no crew, no hassle.
+              Your Content OS for viral growth. Generate engaging UGC-style videos with AI in minutes.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
