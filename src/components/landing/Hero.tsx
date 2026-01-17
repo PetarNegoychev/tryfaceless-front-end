@@ -1,16 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Play, Zap, Shield, TrendingUp } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import tryfacelessLogo from "@/assets/tryfaceless-logo.png";
+import tryfacelessIcon from "@/assets/tryfaceless-icon.png";
 
 const Hero = () => {
-  const floatingIcons = [
-    { icon: Zap, delay: 0, position: "top-20 left-10" },
-    { icon: Shield, delay: 1, position: "top-32 right-16" },
-    { icon: TrendingUp, delay: 2, position: "bottom-40 left-20" },
-    { icon: Play, delay: 1.5, position: "bottom-32 right-10" },
-  ];
-
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden animated-gradient-bg">
       {/* Animated glow blobs */}
@@ -89,8 +82,8 @@ const Hero = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
-          {/* Left Content */}
-          <div className="text-center lg:text-left">
+          {/* Left Content - Added left padding */}
+          <div className="text-center lg:text-left lg:pl-8 xl:pl-12">
             {/* Main Headline */}
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
@@ -167,113 +160,152 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Visual - 3D Floating Element */}
-          <div className="relative hidden lg:flex items-center justify-center">
-            {/* Floating Icons */}
-            {floatingIcons.map((item, index) => (
-              <motion.div
-                key={index}
-                className={`absolute ${item.position} z-20`}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 + item.delay * 0.2 }}
-              >
-                <motion.div
-                  className="p-3 rounded-xl bg-card/80 backdrop-blur-sm border border-border/50 shadow-lg"
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: item.delay }}
-                >
-                  <item.icon className="w-5 h-5 text-primary" />
-                </motion.div>
-              </motion.div>
-            ))}
-
-            {/* Central 3D Visual */}
+          {/* Right Visual - Abstract 3D Orb Design */}
+          <div className="relative hidden lg:flex items-center justify-center min-h-[500px]">
+            {/* Main 3D Orb */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 1, delay: 0.3 }}
               className="relative"
             >
-              {/* Outer glow ring */}
+              {/* Outer glow */}
               <motion.div
-                className="absolute inset-0 rounded-full"
+                className="absolute -inset-20 rounded-full opacity-60"
                 style={{
-                  background: "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--neon-pink)), hsl(var(--primary)))",
-                  filter: "blur(40px)",
-                  opacity: 0.4,
+                  background: "radial-gradient(circle, hsl(var(--primary) / 0.4) 0%, transparent 70%)",
                 }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
 
-              {/* Glass card container */}
+              {/* Orbiting ring 1 */}
               <motion.div
-                className="relative w-80 h-80 md:w-96 md:h-96 rounded-3xl bg-card/40 backdrop-blur-xl border border-border/50 overflow-hidden"
-                animate={{ 
-                  rotateY: [0, 5, 0, -5, 0],
-                  rotateX: [0, -5, 0, 5, 0],
-                }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                style={{ transformStyle: "preserve-3d" }}
+                className="absolute inset-[-60px] rounded-full border border-primary/30"
+                style={{ transform: "rotateX(75deg)" }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
               >
-                {/* Inner gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
-                
-                {/* Logo in center */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-primary rounded-full glow-primary" />
+              </motion.div>
+
+              {/* Orbiting ring 2 */}
+              <motion.div
+                className="absolute inset-[-90px] rounded-full border border-secondary/20"
+                style={{ transform: "rotateX(75deg) rotateZ(60deg)" }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-secondary rounded-full glow-secondary" />
+              </motion.div>
+
+              {/* Orbiting ring 3 */}
+              <motion.div
+                className="absolute inset-[-120px] rounded-full border border-neon-pink/15"
+                style={{ transform: "rotateX(75deg) rotateZ(-30deg)" }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-neon-pink rounded-full" />
+              </motion.div>
+
+              {/* Central orb gradient sphere */}
+              <motion.div
+                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full"
+                animate={{ 
+                  rotateY: [0, 360],
+                }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                style={{
+                  background: "radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.8), hsl(var(--secondary) / 0.6) 50%, hsl(var(--neon-pink) / 0.4) 100%)",
+                  boxShadow: "inset -20px -20px 60px rgba(0,0,0,0.4), inset 20px 20px 60px rgba(255,255,255,0.1), 0 0 100px hsl(var(--primary) / 0.5)",
+                }}
+              >
+                {/* Inner shine */}
+                <div 
+                  className="absolute top-[15%] left-[20%] w-[30%] h-[20%] rounded-full opacity-40"
+                  style={{
+                    background: "linear-gradient(135deg, rgba(255,255,255,0.6), transparent)",
+                    filter: "blur(10px)",
+                  }}
+                />
+
+                {/* Center logo */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.img
-                    src={tryfacelessLogo}
+                    src={tryfacelessIcon}
                     alt="TryFaceless"
-                    className="w-48 md:w-56 h-auto object-contain drop-shadow-2xl"
-                    animate={{ scale: [1, 1.05, 1] }}
+                    className="w-32 md:w-40 h-auto object-contain drop-shadow-2xl"
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                    }}
                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                   />
                 </div>
-
-                {/* Floating mini cards */}
-                <motion.div
-                  className="absolute top-6 right-6 px-3 py-2 rounded-lg bg-primary/20 backdrop-blur-sm border border-primary/30"
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                >
-                  <span className="text-xs text-primary font-medium">AI-Powered</span>
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-6 left-6 px-3 py-2 rounded-lg bg-secondary/20 backdrop-blur-sm border border-secondary/30"
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{ duration: 3.5, repeat: Infinity }}
-                >
-                  <span className="text-xs text-secondary font-medium">Viral Content</span>
-                </motion.div>
-
-                <motion.div
-                  className="absolute bottom-6 right-6 px-3 py-2 rounded-lg bg-neon-pink/20 backdrop-blur-sm border border-neon-pink/30"
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 2.8, repeat: Infinity }}
-                >
-                  <span className="text-xs text-neon-pink font-medium">No Face Needed</span>
-                </motion.div>
               </motion.div>
 
-              {/* Orbiting particles */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* Floating geometric shapes */}
+              <motion.div
+                className="absolute -top-10 -right-10 w-16 h-16"
+                animate={{ 
+                  y: [0, -20, 0],
+                  rotate: [0, 180, 360],
+                }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="w-full h-full rounded-lg bg-gradient-to-br from-primary/40 to-secondary/40 backdrop-blur-sm border border-primary/20" 
+                  style={{ transform: "rotate(45deg)" }}
+                />
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-8 -left-8 w-12 h-12 rounded-full bg-gradient-to-br from-secondary/50 to-neon-pink/50 backdrop-blur-sm border border-secondary/20"
+                animate={{ 
+                  y: [0, 15, 0],
+                  x: [0, -10, 0],
+                }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              <motion.div
+                className="absolute top-1/4 -left-16 w-8 h-8 rounded-full bg-primary/30 backdrop-blur-sm"
+                animate={{ 
+                  scale: [1, 1.5, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              <motion.div
+                className="absolute bottom-1/4 -right-12 w-6 h-6 rounded-full bg-neon-pink/40"
+                animate={{ 
+                  scale: [1.2, 0.8, 1.2],
+                  opacity: [0.7, 0.3, 0.7],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+
+              {/* Particle dots */}
+              {[...Array(6)].map((_, i) => (
                 <motion.div
-                  className="absolute w-[110%] h-[110%]"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                >
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full glow-primary" />
-                </motion.div>
-                <motion.div
-                  className="absolute w-[125%] h-[125%]"
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                >
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-secondary rounded-full glow-secondary" />
-                </motion.div>
-              </div>
+                  key={i}
+                  className="absolute w-1.5 h-1.5 rounded-full bg-primary/60"
+                  style={{
+                    top: `${20 + Math.random() * 60}%`,
+                    left: `${10 + Math.random() * 80}%`,
+                  }}
+                  animate={{
+                    y: [0, -30, 0],
+                    opacity: [0, 1, 0],
+                  }}
+                  transition={{
+                    duration: 3 + Math.random() * 2,
+                    repeat: Infinity,
+                    delay: i * 0.5,
+                    ease: "easeInOut",
+                  }}
+                />
+              ))}
             </motion.div>
           </div>
         </div>
