@@ -1,5 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const plans = [
   {
@@ -45,37 +46,75 @@ const plans = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 const Pricing = () => {
   return (
     <section id="pricing" className="py-24 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="gradient-text">Pricing</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Choose the plan that fits your content creation needs
           </p>
-        </div>
+        </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan, index) => (
-            <div
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {plans.map((plan) => (
+            <motion.div
               key={plan.name}
-              className={`relative rounded-xl border p-6 animate-fade-in ${
+              className={`relative rounded-xl border p-6 ${
                 plan.highlighted
                   ? "border-primary bg-gradient-to-b from-primary/10 to-card glow-primary"
                   : "border-border bg-card card-glow"
               }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               {/* Popular Badge */}
               {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-primary-foreground text-sm font-semibold">
+                <motion.div 
+                  className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-primary to-secondary text-primary-foreground text-sm font-semibold"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
                   Most Popular
-                </div>
+                </motion.div>
               )}
 
               {/* Plan Header */}
@@ -90,29 +129,41 @@ const Pricing = () => {
 
               {/* Features */}
               <ul className="space-y-3 mb-6">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3 text-sm">
+                {plan.features.map((feature, index) => (
+                  <motion.li 
+                    key={feature} 
+                    className="flex items-start gap-3 text-sm"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                  >
                     <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3 h-3 text-primary" />
                     </div>
                     <span className="text-muted-foreground">{feature}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 
               {/* CTA */}
-              <Button
-                className={`w-full ${
-                  plan.highlighted
-                    ? "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90"
-                    : "bg-muted text-foreground hover:bg-muted/80"
-                }`}
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {plan.cta}
-              </Button>
-            </div>
+                <Button
+                  className={`w-full ${
+                    plan.highlighted
+                      ? "bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90"
+                      : "bg-muted text-foreground hover:bg-muted/80"
+                  }`}
+                >
+                  {plan.cta}
+                </Button>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

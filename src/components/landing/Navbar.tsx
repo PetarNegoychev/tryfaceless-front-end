@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import tryfacelessLogo from "@/assets/tryfaceless-logo.png";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,10 +19,11 @@ const Navbar = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div className="relative h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">TF</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">TryFaceless</span>
+            <img 
+              src={tryfacelessLogo} 
+              alt="TryFaceless" 
+              className="h-8 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}

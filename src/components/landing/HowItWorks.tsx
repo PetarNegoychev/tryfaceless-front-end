@@ -1,4 +1,5 @@
 import { Globe, Users, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
 
 const steps = [
   {
@@ -54,34 +55,69 @@ const steps = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 },
+  },
+};
+
 const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-24 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             How <span className="gradient-text">It Works</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Three simple steps to go from zero to viral-ready content
           </p>
-        </div>
+        </motion.div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
           {steps.map((step, index) => (
-            <div
+            <motion.div
               key={step.number}
-              className="relative animate-fade-in"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              className="relative"
+              variants={itemVariants}
             >
               {/* Connector Line */}
               {index < steps.length - 1 && (
                 <div className="hidden md:block absolute top-12 left-[60%] w-full h-px bg-gradient-to-r from-primary/50 to-transparent" />
               )}
 
-              <div className="relative p-6 rounded-xl border border-border bg-card card-glow h-full">
+              <motion.div 
+                className="relative p-6 rounded-xl border border-border bg-card card-glow h-full"
+                whileHover={{ scale: 1.02, y: -5 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 {/* Step Number */}
                 <div className="absolute -top-4 -left-2 w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground font-bold text-lg shadow-lg">
                   {step.number}
@@ -102,10 +138,10 @@ const HowItWorks = () => {
 
                 {/* Visual Mockup */}
                 {step.mockup}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

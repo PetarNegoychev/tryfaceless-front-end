@@ -1,4 +1,5 @@
 import { Twitter, Linkedin, Youtube, Instagram } from "lucide-react";
+import tryfacelessLogo from "@/assets/tryfaceless-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -35,10 +36,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="relative h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">TF</span>
-              </div>
-              <span className="text-xl font-bold text-foreground">TryFaceless</span>
+              <img 
+                src={tryfacelessLogo} 
+                alt="TryFaceless" 
+                className="h-8 w-auto object-contain"
+              />
             </a>
             <p className="text-sm text-muted-foreground mb-6 max-w-xs">
               Your Content OS for viral growth. Generate engaging UGC-style videos with AI in minutes.
