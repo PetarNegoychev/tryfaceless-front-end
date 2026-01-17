@@ -49,7 +49,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-center mb-4 md:mb-6"
+          className="flex justify-center mb-2 md:mb-4"
         >
           <div className="relative group">
             {/* Animated border glow */}
@@ -133,6 +133,7 @@ const Hero = () => {
                 size="lg"
                 variant="outline"
                 className="w-full sm:w-auto border-border hover:bg-muted/50 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg hover:scale-105 transition-transform backdrop-blur-sm"
+                onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 See How It Works
               </Button>
