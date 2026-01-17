@@ -42,7 +42,7 @@ const Navbar = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
             <Button
-              className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-opacity glow-primary"
+              className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-opacity glow-primary h-[20px] text-xs px-3"
             >
               Get Started
             </Button>
