@@ -1,4 +1,4 @@
-import tryfacelessLogo from "@/assets/tryfaceless-logo.png";
+import tryfacelessIcon from "@/assets/tryfaceless-icon.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,9 +24,9 @@ const Footer = () => {
           <div className="md:col-span-2">
             <a href="#" className="flex items-center gap-2 mb-4">
               <img 
-                src={tryfacelessLogo} 
+                src={tryfacelessIcon} 
                 alt="TryFaceless" 
-                className="h-10 w-auto object-contain"
+                className="h-14 w-auto object-contain"
               />
             </a>
             <p className="text-sm text-muted-foreground mb-6 max-w-xs">
