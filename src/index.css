@@ -189,4 +189,54 @@
                   0 0 60px hsl(var(--primary) / 0.3);
     }
   }
+
+  /* Orbiting animations */
+  .orbit-1 {
+    animation: orbit 20s linear infinite;
+  }
+
+  .orbit-2 {
+    animation: orbit 30s linear infinite reverse;
+  }
+
+  .orbit-2-reverse {
+    animation: orbit 25s linear infinite;
+  }
+
+  .orbit-3 {
+    animation: orbit 40s linear infinite;
+  }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Particle float animation */
+  .particle-float {
+    animation: particle-float 5s ease-in-out infinite;
+  }
+
+  @keyframes particle-float {
+    0%, 100% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translateY(-30px) translateX(10px) scale(1.2);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-50px) translateX(-10px) scale(0.8);
+      opacity: 0.4;
+    }
+    75% {
+      transform: translateY(-20px) translateX(15px) scale(1.1);
+      opacity: 0.8;
+    }
+  }
 }
