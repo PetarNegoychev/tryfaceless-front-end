@@ -63,7 +63,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.4, delay: 0 }}
-              className="md:hidden flex justify-center mb-24"
+              className="md:hidden flex justify-center mb-5"
             >
               <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-[11px] text-primary font-medium tracking-wide uppercase">
                 Your Content OS for Viral Growth
@@ -76,7 +76,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-xl xs:text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight"
+              className="text-xl xs:text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight mt-[140px] md:mt-0"
             >
               Get more views in{" "}
               <span className="gradient-text">3 simple steps</span>
