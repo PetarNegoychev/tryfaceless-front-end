@@ -9,9 +9,9 @@ const fadeIn = {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[60vh] md:min-h-screen flex items-center justify-center pt-16 md:pt-16 pb-6 md:pb-8 overflow-hidden animated-gradient-bg">
+    <section className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center pt-20 md:pt-16 pb-6 md:pb-8 overflow-hidden animated-gradient-bg w-full max-w-full">
       {/* Static glow blobs - no animation on mobile for performance */}
-      <div className="absolute inset-0 overflow-hidden hidden md:block">
+      <div className="absolute inset-0 overflow-hidden hidden md:block pointer-events-none">
         <motion.div 
           className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px]"
           animate={{ 
@@ -37,33 +37,33 @@ const Hero = () => {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
       </div>
-      {/* Simple static background for mobile */}
-      <div className="absolute inset-0 overflow-hidden md:hidden">
-        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[100px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-secondary/20 rounded-full blur-[80px]" />
+      {/* Simple static background for mobile - centered and contained */}
+      <div className="absolute inset-0 overflow-hidden md:hidden pointer-events-none">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[200px] h-[200px] bg-primary/20 rounded-full blur-[80px]" />
+        <div className="absolute bottom-1/3 left-1/2 -translate-x-1/2 w-[150px] h-[150px] bg-secondary/20 rounded-full blur-[60px]" />
       </div>
 
       {/* Grid overlay */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary) / 0.3) 1px, transparent 1px)`,
           backgroundSize: "80px 80px",
         }}
       />
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           
-          {/* Left Content - Added left padding */}
-          <div className="text-center lg:text-left lg:pl-8 xl:pl-12">
+          {/* Left Content */}
+          <div className="text-center lg:text-left px-2 sm:px-0 lg:pl-8 xl:pl-12">
             {/* Main Headline */}
             <motion.h1 
               variants={fadeIn}
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 md:mb-6 leading-tight"
+              className="text-xl xs:text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 md:mb-6 leading-tight"
             >
               Get more views in{" "}
               <span className="gradient-text">3 simple steps</span>

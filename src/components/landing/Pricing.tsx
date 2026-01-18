@@ -67,8 +67,8 @@ const itemVariants = {
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24 relative">
-      <div className="container mx-auto px-4">
+    <section id="pricing" className="py-24 relative overflow-hidden w-full max-w-full">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-16"

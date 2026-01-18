@@ -67,9 +67,9 @@ const itemVariants = {
 
 const WhyChoose = () => {
   return (
-    <section id="features" className="py-24 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
+    <section id="features" className="py-24 relative overflow-hidden w-full max-w-full">
+      {/* Background effects - hidden on mobile to prevent overflow */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
         <motion.div 
           className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]"
           animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
@@ -82,7 +82,7 @@ const WhyChoose = () => {
         />
       </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-16"

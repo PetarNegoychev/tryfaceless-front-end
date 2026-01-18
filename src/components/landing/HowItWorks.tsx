@@ -143,14 +143,14 @@ const itemVariants = {
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-24 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2" />
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-x-1/2" />
+    <section id="how-it-works" className="py-24 relative overflow-hidden w-full max-w-full">
+      {/* Background effects - constrained */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-64 md:w-96 h-64 md:h-96 bg-primary/10 rounded-full blur-3xl -translate-x-1/2" />
+        <div className="absolute top-1/2 right-0 w-64 md:w-96 h-64 md:h-96 bg-secondary/10 rounded-full blur-3xl translate-x-1/2" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-16"
