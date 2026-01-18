@@ -2,9 +2,14 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import tryfacelessIcon from "@/assets/tryfaceless-icon.png";
 
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const Hero = () => {
   return (
-    <section className="relative min-h-fit md:min-h-screen flex items-center justify-center pt-20 md:pt-16 pb-6 md:pb-8 overflow-hidden animated-gradient-bg">
+    <section className="relative min-h-[60vh] md:min-h-screen flex items-center justify-center pt-16 md:pt-16 pb-6 md:pb-8 overflow-hidden animated-gradient-bg">
       {/* Static glow blobs - no animation on mobile for performance */}
       <div className="absolute inset-0 overflow-hidden hidden md:block">
         <motion.div 
@@ -54,9 +59,10 @@ const Hero = () => {
           <div className="text-center lg:text-left lg:pl-8 xl:pl-12">
             {/* Main Headline */}
             <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.4, delay: 0.05 }}
               className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 md:mb-6 leading-tight"
             >
               Get more views in{" "}
@@ -65,9 +71,10 @@ const Hero = () => {
 
             {/* Subheadline */}
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.4, delay: 0.1 }}
               className="text-sm md:text-lg lg:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-2 md:mb-4"
             >
               Tell us your niche, your top 3 competitors and TryFaceless will create 
@@ -76,9 +83,10 @@ const Hero = () => {
 
             {/* Tagline */}
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.4, delay: 0.15 }}
               className="text-xs md:text-base lg:text-lg text-foreground/80 font-medium mb-4 md:mb-8"
             >
               Let us do the hard work. You focus on going viral.
@@ -86,9 +94,10 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.4, delay: 0.2 }}
               className="flex flex-col sm:flex-row items-center lg:items-start gap-2 sm:gap-3 md:gap-4 mb-4 md:mb-6"
             >
               <Button
@@ -109,9 +118,10 @@ const Hero = () => {
 
             {/* Stats */}
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.4, delay: 0.25 }}
               className="grid grid-cols-3 gap-3 md:gap-6 max-w-sm md:max-w-md mx-auto lg:mx-0"
             >
               <div className="text-center lg:text-left group">
@@ -260,15 +270,15 @@ const Hero = () => {
                   key={i}
                   className="absolute w-1.5 h-1.5 rounded-full bg-primary/60"
                   style={{
-                    top: `${20 + Math.random() * 60}%`,
-                    left: `${10 + Math.random() * 80}%`,
+                    top: `${20 + i * 10}%`,
+                    left: `${10 + i * 15}%`,
                   }}
                   animate={{
                     y: [0, -30, 0],
                     opacity: [0, 1, 0],
                   }}
                   transition={{
-                    duration: 3 + Math.random() * 2,
+                    duration: 3 + i * 0.4,
                     repeat: Infinity,
                     delay: i * 0.5,
                     ease: "easeInOut",
