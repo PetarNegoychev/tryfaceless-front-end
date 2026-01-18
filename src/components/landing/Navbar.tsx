@@ -9,8 +9,8 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("");
 
   const navLinks = [
-    { label: "Features", href: "#features" },
     { label: "How It Works", href: "#how-it-works" },
+    { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
   ];
@@ -27,7 +27,7 @@ const Navbar = () => {
           }
         });
       },
-      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
     );
 
     sectionIds.forEach((id) => {
@@ -35,7 +35,20 @@ const Navbar = () => {
       if (element) observer.observe(element);
     });
 
-    return () => observer.disconnect();
+    // Reset active section when at top
+    const handleScroll = () => {
+      if (window.scrollY < 200) {
+        setActiveSection("");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial state
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
