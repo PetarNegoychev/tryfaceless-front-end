@@ -63,7 +63,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.4, delay: 0 }}
-              className="md:hidden flex justify-center mb-8"
+              className="md:hidden flex justify-center mb-16"
             >
               <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-[11px] text-primary font-medium tracking-wide uppercase">
                 Your Content OS for Viral Growth
