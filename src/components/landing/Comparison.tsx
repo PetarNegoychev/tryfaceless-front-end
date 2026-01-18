@@ -29,8 +29,8 @@ const tryfacelessBenefits = [
 
 const Comparison = () => {
   return (
-    <section className="py-24 relative">
-      <div className="container mx-auto px-4">
+    <section className="py-24 relative overflow-hidden w-full max-w-full">
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-16"
