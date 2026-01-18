@@ -4,7 +4,7 @@ import tryfacelessIcon from "@/assets/tryfaceless-icon.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-fit md:min-h-screen flex items-center justify-center pt-24 md:pt-16 pb-8 overflow-hidden animated-gradient-bg">
+    <section className="relative min-h-fit md:min-h-screen flex items-center justify-center pt-20 md:pt-16 pb-6 md:pb-8 overflow-hidden animated-gradient-bg">
       {/* Static glow blobs - no animation on mobile for performance */}
       <div className="absolute inset-0 overflow-hidden hidden md:block">
         <motion.div 
@@ -47,8 +47,8 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
           
           {/* Left Content - Added left padding */}
           <div className="text-center lg:text-left lg:pl-8 xl:pl-12">
@@ -57,7 +57,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 md:mb-6 leading-tight"
             >
               Get more views in{" "}
               <span className="gradient-text">3 simple steps</span>
@@ -68,7 +68,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-3 md:mb-4"
+              className="text-sm md:text-lg lg:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-2 md:mb-4"
             >
               Tell us your niche, your top 3 competitors and TryFaceless will create 
               the most highly engaging content for you to post. No scripting needed.
@@ -79,7 +79,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="text-sm md:text-base lg:text-lg text-foreground/80 font-medium mb-6 md:mb-8"
+              className="text-xs md:text-base lg:text-lg text-foreground/80 font-medium mb-4 md:mb-8"
             >
               Let us do the hard work. You focus on going viral.
             </motion.p>
@@ -89,18 +89,18 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-center lg:items-start gap-3 md:gap-4 mb-6"
+              className="flex flex-col sm:flex-row items-center lg:items-start gap-2 sm:gap-3 md:gap-4 mb-4 md:mb-6"
             >
               <Button
                 size="lg"
-                className="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-all glow-primary px-6 md:px-8 py-5 md:py-6 text-base md:text-lg hover:scale-105"
+                className="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-all glow-primary px-6 md:px-8 py-4 md:py-6 text-sm md:text-lg hover:scale-105"
               >
                 Start Creating Free
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto border-border hover:bg-muted/50 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg hover:scale-105 transition-transform backdrop-blur-sm"
+                className="w-full sm:w-auto border-border hover:bg-muted/50 px-6 md:px-8 py-4 md:py-6 text-sm md:text-lg hover:scale-105 transition-transform backdrop-blur-sm"
                 onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 See How It Works
@@ -112,19 +112,19 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="grid grid-cols-3 gap-4 md:gap-6 max-w-md mx-auto lg:mx-0"
+              className="grid grid-cols-3 gap-3 md:gap-6 max-w-sm md:max-w-md mx-auto lg:mx-0"
             >
               <div className="text-center lg:text-left group">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text group-hover:scale-110 transition-transform inline-block">10K+</div>
-                <div className="text-xs md:text-sm text-muted-foreground">Videos Created</div>
+                <div className="text-lg sm:text-xl md:text-3xl font-bold gradient-text group-hover:scale-110 transition-transform inline-block">10K+</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Videos Created</div>
               </div>
               <div className="text-center lg:text-left group">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text group-hover:scale-110 transition-transform inline-block">2min</div>
-                <div className="text-xs md:text-sm text-muted-foreground">Avg. Generation</div>
+                <div className="text-lg sm:text-xl md:text-3xl font-bold gradient-text group-hover:scale-110 transition-transform inline-block">2min</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Avg. Generation</div>
               </div>
               <div className="text-center lg:text-left group">
-                <div className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text group-hover:scale-110 transition-transform inline-block">500+</div>
-                <div className="text-xs md:text-sm text-muted-foreground">Happy Users</div>
+                <div className="text-lg sm:text-xl md:text-3xl font-bold gradient-text group-hover:scale-110 transition-transform inline-block">500+</div>
+                <div className="text-[10px] sm:text-xs md:text-sm text-muted-foreground">Happy Users</div>
               </div>
             </motion.div>
           </div>
