@@ -57,6 +57,17 @@ const Hero = () => {
           
           {/* Left Content */}
           <div className="text-center lg:text-left px-2 sm:px-0 lg:pl-8 xl:pl-12">
+            {/* Mobile-only tagline */}
+            <motion.p
+              variants={fadeIn}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.4, delay: 0 }}
+              className="md:hidden text-xs text-primary font-semibold tracking-wide uppercase mb-2"
+            >
+              Your Content OS for Viral Growth
+            </motion.p>
+
             {/* Main Headline */}
             <motion.h1 
               variants={fadeIn}
