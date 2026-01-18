@@ -4,9 +4,9 @@ import tryfacelessIcon from "@/assets/tryfaceless-icon.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center pt-20 md:pt-16 pb-8 overflow-hidden animated-gradient-bg">
-      {/* Animated glow blobs */}
-      <div className="absolute inset-0 overflow-hidden">
+    <section className="relative min-h-fit md:min-h-screen flex items-center justify-center pt-24 md:pt-16 pb-8 overflow-hidden animated-gradient-bg">
+      {/* Static glow blobs - no animation on mobile for performance */}
+      <div className="absolute inset-0 overflow-hidden hidden md:block">
         <motion.div 
           className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px]"
           animate={{ 
@@ -31,6 +31,11 @@ const Hero = () => {
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
         />
+      </div>
+      {/* Simple static background for mobile */}
+      <div className="absolute inset-0 overflow-hidden md:hidden">
+        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-primary/20 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-secondary/20 rounded-full blur-[80px]" />
       </div>
 
       {/* Grid overlay */}
