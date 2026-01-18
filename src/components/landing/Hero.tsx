@@ -9,7 +9,7 @@ const fadeIn = {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[100svh] md:min-h-screen flex items-center justify-center pt-20 md:pt-16 pb-6 md:pb-8 overflow-hidden animated-gradient-bg w-full max-w-full">
+    <section className="relative min-h-[110svh] md:min-h-screen flex items-center justify-center pt-24 md:pt-16 pb-10 md:pb-8 overflow-hidden animated-gradient-bg w-full max-w-full">
       {/* Static glow blobs - no animation on mobile for performance */}
       <div className="absolute inset-0 overflow-hidden hidden md:block pointer-events-none">
         <motion.div 
