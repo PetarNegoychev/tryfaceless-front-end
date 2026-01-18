@@ -76,7 +76,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-xl xs:text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 leading-tight mt-[140px] md:mt-0"
+              className="text-xl xs:text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-5 md:mb-6 leading-tight mt-[100px] md:mt-0"
             >
               Get more views in{" "}
               <span className="gradient-text">3 simple steps</span>
@@ -88,7 +88,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.4, delay: 0.1 }}
-              className="text-sm md:text-lg lg:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-4 md:mb-4"
+              className="text-sm md:text-lg lg:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-5 md:mb-4"
             >
               Tell us your niche, your top 3 competitors and TryFaceless will create 
               the most highly engaging content for you to post. No scripting needed.
@@ -100,7 +100,7 @@ const Hero = () => {
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.4, delay: 0.15 }}
-              className="text-xs md:text-base lg:text-lg text-foreground/80 font-medium mb-6 md:mb-8"
+              className="text-xs md:text-base lg:text-lg text-foreground/80 font-medium mb-8 md:mb-8"
             >
               Let us do the hard work. You focus on going viral.
             </motion.p>
