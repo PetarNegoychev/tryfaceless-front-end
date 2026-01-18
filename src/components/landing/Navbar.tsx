@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import tryfacelessIcon from "@/assets/tryfaceless-icon.png";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const navLinks = [
     { label: "Features", href: "#features" },
@@ -13,6 +14,39 @@ const Navbar = () => {
     { label: "Pricing", href: "#pricing" },
     { label: "FAQ", href: "#faq" },
   ];
+
+  // Track active section with IntersectionObserver
+  useEffect(() => {
+    const sectionIds = navLinks.map(link => link.href.replace("#", ""));
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+    );
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsMenuOpen(false);
+    }
+  };
 
   const menuVariants = {
     closed: {
@@ -60,9 +94,22 @@ const Navbar = () => {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={cn(
+                  "text-sm transition-colors duration-200 relative",
+                  activeSection === link.href.replace("#", "")
+                    ? "text-foreground font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
               >
                 {link.label}
+                {activeSection === link.href.replace("#", "") && (
+                  <motion.span
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </a>
             ))}
           </div>
@@ -125,8 +172,13 @@ const Navbar = () => {
                     key={link.label}
                     href={link.href}
                     variants={itemVariants}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={cn(
+                      "text-sm transition-colors duration-200",
+                      activeSection === link.href.replace("#", "")
+                        ? "text-foreground font-medium"
+                        : "text-muted-foreground hover:text-foreground"
+                    )}
                   >
                     {link.label}
                   </motion.a>
