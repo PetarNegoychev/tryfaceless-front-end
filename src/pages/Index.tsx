@@ -7,7 +7,6 @@ import Pricing from "@/components/landing/Pricing";
 import FAQ from "@/components/landing/FAQ";
 import Footer from "@/components/landing/Footer";
 import StickyMobileCTA from "@/components/landing/StickyMobileCTA";
-import ScrollToTop from "@/components/landing/ScrollToTop";
 
 const Index = () => {
   return (
@@ -21,7 +20,6 @@ const Index = () => {
       <FAQ />
       <Footer />
       <StickyMobileCTA />
-      <ScrollToTop />
     </div>
   );
 };
