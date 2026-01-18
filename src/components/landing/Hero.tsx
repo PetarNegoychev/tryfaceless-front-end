@@ -9,7 +9,7 @@ const fadeIn = {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[110svh] md:min-h-screen flex items-center justify-center pt-24 md:pt-16 pb-10 md:pb-8 overflow-hidden animated-gradient-bg w-full max-w-full">
+    <section className="relative min-h-[100svh] md:min-h-screen flex items-start md:items-center justify-center pt-20 md:pt-16 pb-10 md:pb-8 overflow-hidden animated-gradient-bg w-full max-w-full">
       {/* Static glow blobs - no animation on mobile for performance */}
       <div className="absolute inset-0 overflow-hidden hidden md:block pointer-events-none">
         <motion.div 
@@ -57,16 +57,18 @@ const Hero = () => {
           
           {/* Left Content */}
           <div className="text-center lg:text-left px-2 sm:px-0 lg:pl-8 xl:pl-12">
-            {/* Mobile-only tagline */}
-            <motion.p
+            {/* Mobile-only tagline - pill style */}
+            <motion.div
               variants={fadeIn}
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.4, delay: 0 }}
-              className="md:hidden text-xs text-primary font-semibold tracking-wide uppercase mb-2"
+              className="md:hidden flex justify-center mb-4"
             >
-              Your Content OS for Viral Growth
-            </motion.p>
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-[11px] text-primary font-medium tracking-wide uppercase">
+                Your Content OS for Viral Growth
+              </span>
+            </motion.div>
 
             {/* Main Headline */}
             <motion.h1 
